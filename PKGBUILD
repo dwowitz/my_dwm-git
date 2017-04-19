@@ -43,10 +43,13 @@ prepare() {
     cp -f "$SRCDEST/$pkgname/config.h" config.h
   fi
   
+  cd $srcdir/$pkgname-$pkgver
   for p in "${_patches[@]}"; do
     echo "=> $p"
     patch < ../$p || return 1
   done
+
+  cp $srcdir/colors.h colors.h
 }
 
 build() {

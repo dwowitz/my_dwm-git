@@ -30,7 +30,7 @@ _patches=(01_dwm-statuscolors-nopad-bb3bd6f-20170106.diff
 source=(${source[@]} ${_patches[@]})
 
 md5sums=('939f403a71b6e85261d09fc3412269ee'
-         '99383373a38a47ed4745fa530767ee30'
+         'c1bf01d08688045104501b15f01b1af0'
          'SKIP'
          '27e6017102bb432dfa421b9d1e7be486'
          '3f43454ab26ddd5d3fcfdeedab670509'
@@ -42,7 +42,7 @@ md5sums=('939f403a71b6e85261d09fc3412269ee'
          '83950436538eadcf7f217190ed71a837'
          '5cfdb08e42746092d825284669dd10ab'
          '103805203b6f34cfcba7477d57bd98f2'
-         '33d8c3f97ba4f74c650e1b1b4f9b5ceb')
+         'ab7ca5f321b234a1ebc795cf5b11dc25')
 
 pkgver(){
   cd $_pkgname

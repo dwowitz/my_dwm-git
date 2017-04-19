@@ -1,6 +1,6 @@
 pkgname=dwm-git
 _pkgname=dwm
-pkgver=6.1.6.gab9571b
+pkgver=6.1.17.g5b238c8
 pkgrel=1
 pkgdesc="A dynamic window manager for X"
 url="http://dwm.suckless.org"
@@ -30,7 +30,19 @@ _patches=(01_dwm-statuscolors-nopad-bb3bd6f-20170106.diff
 source=(${source[@]} ${_patches[@]})
 
 md5sums=('939f403a71b6e85261d09fc3412269ee'
-         'SKIP')
+         '99383373a38a47ed4745fa530767ee30'
+         'SKIP'
+         '27e6017102bb432dfa421b9d1e7be486'
+         '3f43454ab26ddd5d3fcfdeedab670509'
+         '05bf190e96e7fdc9d088be46d709649f'
+         '470ee8ea8a29b20395d9481857333c15'
+         '93cfa5112442be7007142f08f60e4d52'
+         '32bf82bf03e2fccd14d814d4416b19f6'
+         'be6941fa34af73e529c8a3eb6c585f0f'
+         '83950436538eadcf7f217190ed71a837'
+         '5cfdb08e42746092d825284669dd10ab'
+         '103805203b6f34cfcba7477d57bd98f2'
+         '33d8c3f97ba4f74c650e1b1b4f9b5ceb')
 
 pkgver(){
   cd $_pkgname
@@ -43,7 +55,6 @@ prepare() {
     cp -f "$SRCDEST/$pkgname/config.h" config.h
   fi
   
-  cd $srcdir/$pkgname-$pkgver
   for p in "${_patches[@]}"; do
     echo "=> $p"
     patch < ../$p || return 1

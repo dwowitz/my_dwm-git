@@ -15,6 +15,7 @@ conflicts=('dwm')
 epoch=1
 source=(dwm.desktop
         colors.h
+        config.h
         "$_pkgname::git+http://git.suckless.org/dwm")
 _patches=(01_dwm-statuscolors-nopad-bb3bd6f-20170106.diff
 					02_dwm-dualstatus-colored-6.1.diff
@@ -30,7 +31,8 @@ _patches=(01_dwm-statuscolors-nopad-bb3bd6f-20170106.diff
 source=(${source[@]} ${_patches[@]})
 
 md5sums=('939f403a71b6e85261d09fc3412269ee'
-         'c1bf01d08688045104501b15f01b1af0'
+         '252d0f0c078614b39d0e0058bf6a47d2'
+         'c58512a8ba70532f23c18effde5a01b7'
          'SKIP'
          '27e6017102bb432dfa421b9d1e7be486'
          '3f43454ab26ddd5d3fcfdeedab670509'
@@ -42,7 +44,7 @@ md5sums=('939f403a71b6e85261d09fc3412269ee'
          '83950436538eadcf7f217190ed71a837'
          '5cfdb08e42746092d825284669dd10ab'
          '103805203b6f34cfcba7477d57bd98f2'
-         'ab7ca5f321b234a1ebc795cf5b11dc25')
+         '3c57699cd95e8250c2f26ff86436abaf')
 
 pkgver(){
   cd $_pkgname
@@ -51,15 +53,16 @@ pkgver(){
 
 prepare() {
   cd $_pkgname
-  if [[ -f "$SRCDEST/$pkgname/config.h" ]]; then
-    cp -f "$SRCDEST/$pkgname/config.h" config.h
-  fi
+  #if [[ -f "$SRCDEST/$pkgname/config.h" ]]; then
+  #  cp -f "$SRCDEST/$pkgname/config.h" config.h
+  #fi
   
   for p in "${_patches[@]}"; do
     echo "=> $p"
     patch < ../$p || return 1
   done
 
+  cp $srcdir/config.h config.h
   cp $srcdir/colors.h colors.h
 }
 

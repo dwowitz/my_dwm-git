@@ -62,8 +62,8 @@ prepare() {
     patch < ../$p || return 1
   done
 
-  cp $srcdir/config.h config.h
-  cp $srcdir/colors.h colors.h
+  cp -f $srcdir/config.h config.h
+  cp -f $srcdir/colors.h colors.h
 }
 
 build() {

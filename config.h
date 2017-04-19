@@ -10,14 +10,13 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const int extrabar           = 1;        /* 0 means no extra bar */
 static const char *fonts[]          = {
     "Hack:size=10:style=Bold",
-    //"Knack Nerd Font:size=20:style=Bold",
     "dwowitzArchIcons:size=12",
 };
 static const char dmenufont[]       = "Hack:size=10";
 static const char termfont[]        = "Hack:size=10";
 
 /* tagging */
-static const char *tags[] = { " \uF015 ", " \uF0C8 ", " \uEA27 ", " \uF01C ", " \uF03E ", "+", "+", "+", "+" };
+static const char *tags[] = { " \uF015 ", " \uF0C8 ", " \uEB37 ", " \uF043 ", " \uF01C ", "\uE933", "\uE933", "\uE933", "\uE933" };
 
 static const Rule rules[] = {
     /* xprop(1):
@@ -38,8 +37,8 @@ static const int resizehints = 0;    /* 1 means respect size hints in tiled resi
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ " \uF0DB ",      tile },    /* first entry is default */
-	{ " \uF24D ",      NULL },    /* no layout function means floating behavior */
+	{ " \uF33A ",      tile },    /* first entry is default */
+	{ " \uF33B ",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 };
 
@@ -57,7 +56,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
-    "-nb", black03, "-nf", white02, "-sb", black03, "-sf", brown02, NULL };
+    "-nb", black03, "-nf", white02, "-sb", blue01, "-sf", white03, NULL };
 static const char *termcmd[]  = { "st", "-f", termfont, NULL };
 static const char *browsercmd[]  = { "surf", NULL };
 /* Take full screenshot */

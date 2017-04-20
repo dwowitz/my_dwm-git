@@ -1,5 +1,5 @@
-pkgname=dwm-git
-_pkgname=dwm
+pkgname=dwm-git_${USER}
+_pkgname=dwm_${USER}
 pkgver=6.1.17.g5b238c8
 pkgrel=1
 pkgdesc="A dynamic window manager for X"
@@ -7,15 +7,16 @@ url="http://dwm.suckless.org"
 arch=('i686' 'x86_64')
 license=('MIT')
 options=(zipman)
-depends=('libx11' 'libxinerama' 'libxft')
+depends=('libx11' 'libxinerama' 'libxft' 'st' 'dmenu')
 makedepends=('git')
 install=dwm.install
-provides=('dwm')
-conflicts=('dwm')
+provides=("dwm_${USER}")
+conflicts=("dwm_${USER}")
 epoch=1
 source=(dwm.desktop
         colors.h
         config.h
+        Makefile
         "$_pkgname::git+http://git.suckless.org/dwm")
 _patches=(01_dwm-statuscolors-nopad-bb3bd6f-20170106.diff
 					02_dwm-dualstatus-colored-6.1.diff
@@ -33,6 +34,7 @@ source=(${source[@]} ${_patches[@]})
 md5sums=('939f403a71b6e85261d09fc3412269ee'
          '252d0f0c078614b39d0e0058bf6a47d2'
          'bb3042d9fb27ff6fc7c5726604dcdef4'
+         'ae3d527a8fe8f6826792e6548151c810'
          'SKIP'
          '27e6017102bb432dfa421b9d1e7be486'
          '3f43454ab26ddd5d3fcfdeedab670509'
@@ -64,7 +66,7 @@ prepare() {
 
   cp -f $srcdir/config.h config.h
   cp -f $srcdir/colors.h colors.h
-  cp -f $srcdir/config.mk config.mk
+  cp -f $srcdir/Makefile Makefile
 }
 
 build() {
@@ -74,10 +76,10 @@ build() {
 
 package() {
   cd $_pkgname
-  make PREFIX=${HOME}/.local DESTDIR="$pkgdir" install
+  make VERSION=6.1_${USER} PREFIX=/usr DESTDIR="$pkgdir" install
   install -m644 -D LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
   install -m644 -D README "$pkgdir/usr/share/doc/$pkgname/README"
-  install -m644 -D ../dwm.desktop "$pkgdir/usr/share/xsessions/dwm.desktop"
+  install -m644 -D ../dwm.desktop "$pkgdir/usr/share/xsessions/${DWMBN}.desktop"
 }
 
 # vim:set ts=2 sw=2 et:

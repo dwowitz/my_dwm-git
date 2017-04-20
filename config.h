@@ -58,7 +58,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
     "-nb", black03, "-nf", white02, "-sb", blue01, "-sf", white03, NULL };
 static const char *termcmd[]  = { "st", "-f", termfont, NULL };
-static const char *browsercmd[]  = { "surf", NULL };
+static const char *browsercmd[]  = { "chromium", NULL };
 /* Take full screenshot */
 static const char *scrotfullcmd[]  = { "quickscrot", "-n" };
 /* Take active window screenshot */

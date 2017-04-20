@@ -64,6 +64,7 @@ prepare() {
 
   cp -f $srcdir/config.h config.h
   cp -f $srcdir/colors.h colors.h
+  cp -f $srcdir/config.mk config.mk
 }
 
 build() {

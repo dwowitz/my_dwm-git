@@ -14,7 +14,6 @@ provides=('dwm')
 conflicts=('dwm')
 epoch=1
 source=(dwm.desktop
-        config.mk
         colors.h
         config.h
         "$_pkgname::git+http://git.suckless.org/dwm")
@@ -75,7 +74,7 @@ build() {
 
 package() {
   cd $_pkgname
-  make PREFIX=/usr DESTDIR="$pkgdir" install
+  make PREFIX=${HOME}/.local DESTDIR="$pkgdir" install
   install -m644 -D LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
   install -m644 -D README "$pkgdir/usr/share/doc/$pkgname/README"
   install -m644 -D ../dwm.desktop "$pkgdir/usr/share/xsessions/dwm.desktop"

@@ -14,6 +14,7 @@ provides=('dwm')
 conflicts=('dwm')
 epoch=1
 source=(dwm.desktop
+        config.mk
         colors.h
         config.h
         "$_pkgname::git+http://git.suckless.org/dwm")

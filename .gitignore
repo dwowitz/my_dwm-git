@@ -10,4 +10,4 @@
 !/.git
 !/.gitignore
 !/PKGBUILD
-!/.SRCINFO
+!/*.bak

@@ -8,6 +8,8 @@ This repo also includes my personal dwm configuration and patchset.
 
 ![](screenshot.png)
 
+---
+
 ## Installation
 
 Arch Linux:
@@ -16,13 +18,11 @@ Arch Linux:
 makepkg && sudo pacman -U *.xz
 ```
 
+---
+
 ## Usage example
 ```sh
 startx /usr/bin/dwm_dwowitz
 ```
 
-## Meta
-
-Danny Berkowitz – dwowitz@gmail.com
-
-[https://github.com/dwowitz/](https://github.com/dwowitz/)
+---

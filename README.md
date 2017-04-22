@@ -22,7 +22,7 @@ makepkg && sudo pacman -U *.xz
 
 ## Usage example
 ```sh
-startx /usr/bin/dwm_dwowitz
+startx /usr/bin/dwm_${USER}
 ```
 
 ---

@@ -13,11 +13,11 @@ install=dwm.install
 provides=("dwm_${USER}")
 conflicts=("dwm_${USER}")
 epoch=1
-source=(dwm.desktop
+source=("$_pkgname::git+http://git.suckless.org/dwm")
+_files=(dwm.desktop
         colors.h
         config.h
-        Makefile
-        "$_pkgname::git+http://git.suckless.org/dwm")
+        Makefile)
 _patches=(01_dwm-statuscolors-nopad-bb3bd6f-20170106.diff
 					02_dwm-dualstatus-colored-6.1.diff
 					03_dwm-uselessgap-6.1.diff
@@ -29,13 +29,13 @@ _patches=(01_dwm-statuscolors-nopad-bb3bd6f-20170106.diff
 					10_dwm-resizecorners-6.1.diff
 					11_dwm-savefloats-20160723-56a31dc.diff
 					99_my-settings.diff)
-source=(${source[@]} ${_patches[@]})
+source=(${source[@]} ${_files[@]} ${_patches[@]})
 
-md5sums=('939f403a71b6e85261d09fc3412269ee'
+md5sums=('SKIP'
+         '939f403a71b6e85261d09fc3412269ee'
          '252d0f0c078614b39d0e0058bf6a47d2'
          'bb3042d9fb27ff6fc7c5726604dcdef4'
          'ae3d527a8fe8f6826792e6548151c810'
-         'SKIP'
          '27e6017102bb432dfa421b9d1e7be486'
          '3f43454ab26ddd5d3fcfdeedab670509'
          '05bf190e96e7fdc9d088be46d709649f'
@@ -64,9 +64,9 @@ prepare() {
     patch < ../$p || return 1
   done
 
-  cp -f $srcdir/config.h config.h
-  cp -f $srcdir/colors.h colors.h
-  cp -f $srcdir/Makefile Makefile
+  for file in "${_files[@]}"; do
+    cp -f $srcdir/${file} ${file}
+  done
 }
 
 build() {

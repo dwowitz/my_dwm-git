@@ -18,17 +18,7 @@ _files=(dwm.desktop
         colors.h
         config.h
         Makefile)
-_patches=(01_dwm-statuscolors-nopad-bb3bd6f-20170106.diff
-					02_dwm-dualstatus-colored-6.1.diff
-					03_dwm-uselessgap-6.1.diff
-					04_dwm-pertag-20170107-bb3bd6f.diff
-					05_dwm-fancybar-git-20160725-7af4d43.diff
-					06_dwm-r1522-viewontag.diff
-					07_dwm-warp-git-20160626-7af4d43.diff
-					08_dwm-center-20160719-56a31dc.diff
-					10_dwm-resizecorners-6.1.diff
-					11_dwm-savefloats-20160723-56a31dc.diff
-					99_my-settings.diff)
+_patches=($(find ./ -maxdepth 1 -type f -name "*.diff" -o -name "*.patch"))
 source=(${source[@]} ${_files[@]} ${_patches[@]})
 
 md5sums=('SKIP'
